@@ -19,12 +19,15 @@ def train_transforms(img, mask, resize_shape=(1280, 1080), crop_shape=(1024,1024
     img = TF.to_tensor(img)
     mask = TF.to_tensor(mask)
 
+    img = transforms.Normalize(0.5, 0.5)(img)
+
     return img, mask
 
 def test_transforms(img, mask, resize_shape=(1024,1024)):
     img = transforms.Resize(resize_shape, interpolation = Image.BILINEAR)(img)
     mask = transforms.Resize(resize_shape, interpolation = Image.NEAREST)(mask)
     img = TF.to_tensor(img)
+    img = transforms.Normalize(0.5, 0.5)(img)
     mask = TF.to_tensor(mask)
 
     return img, mask

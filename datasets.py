@@ -29,7 +29,7 @@ class RmbgDataset_from_txt(Dataset):
         else:
             img, mask = test_transforms(img, mask, self.resize_shape)
 
-        return [img, mask]
+        return img, mask
 
     def make_list_from_txt(self, file_path):
         f = open(file_path, 'r')
@@ -66,7 +66,7 @@ class RmbgDataset_from_path(Dataset):
         else:
             img, mask = test_transforms(img, mask, self.resize_shape)
 
-        return [img, mask]
+        return img, mask
 
 def RmbgDataset(cfg, img_path, mask_path, resize_shape=(1280, 1080), crop_shape=(1024,1024), is_train=True):
     dataset_type = cfg['dataset_type']
