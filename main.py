@@ -10,7 +10,7 @@ parser.add_argument('--config', type=str, default='config.ini')
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    config_path = args.config_path
+    config_path = args.config
 
     config = configparser.ConfigParser()
     config.read(config_path, encoding='utf-8')
